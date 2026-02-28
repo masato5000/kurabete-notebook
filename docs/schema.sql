@@ -18,5 +18,6 @@ CREATE TABLE IF NOT EXISTS case_fields (
     id      INTEGER PRIMARY KEY AUTOINCREMENT,
     case_id INTEGER NOT NULL REFERENCES cases(id) ON DELETE CASCADE,
     key     TEXT NOT NULL,
-    value   TEXT NOT NULL DEFAULT ''
+    value   TEXT NOT NULL DEFAULT '',
+    UNIQUE (case_id, key)
 );

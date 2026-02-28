@@ -37,7 +37,7 @@ public class CaseRepository
         cmd.Parameters.AddWithValue("$v", videoId);
         cmd.Parameters.AddWithValue("$t", timestampSeconds);
         var id = Convert.ToInt32(cmd.ExecuteScalar());
-        return new Case { Id = id, VideoId = videoId, TimestampSeconds = timestampSeconds };
+        return new Case { Id = id, VideoId = videoId, TimestampSeconds = timestampSeconds, Outcome = Outcome.None, CreatedAt = DateTime.UtcNow };
     }
 
     public void UpdateOutcome(int caseId, Outcome outcome)

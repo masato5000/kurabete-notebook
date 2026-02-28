@@ -30,6 +30,6 @@ public class VideoRepository
         cmd.Parameters.AddWithValue("$t", title);
         cmd.Parameters.AddWithValue("$p", filePath);
         var id = Convert.ToInt32(cmd.ExecuteScalar());
-        return new Video { Id = id, Title = title, FilePath = filePath };
+        return new Video { Id = id, Title = title, FilePath = filePath, RegisteredAt = DateTime.UtcNow };
     }
 }
