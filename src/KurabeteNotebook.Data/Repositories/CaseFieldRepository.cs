@@ -29,8 +29,7 @@ public class CaseFieldRepository
         using var cmd = _conn.CreateCommand();
         cmd.CommandText = @"
             INSERT INTO case_fields (case_id, key, value) VALUES ($c, $k, $v)
-            ON CONFLICT DO NOTHING;
-            UPDATE case_fields SET value = $v WHERE case_id = $c AND key = $k;
+            ON CONFLICT(case_id, key) DO UPDATE SET value = excluded.value;
             SELECT id FROM case_fields WHERE case_id = $c AND key = $k;";
         cmd.Parameters.AddWithValue("$c", caseId);
         cmd.Parameters.AddWithValue("$k", key);

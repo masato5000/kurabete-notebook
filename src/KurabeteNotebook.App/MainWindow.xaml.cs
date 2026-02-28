@@ -88,6 +88,15 @@ public partial class MainWindow : Window
         _timer.Stop();
     }
 
+    private void SeekBar_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        => _seekBarDragging = true;
+
+    private void SeekBar_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+    {
+        _seekBarDragging = false;
+        VideoPlayer.Position = TimeSpan.FromSeconds(SeekBar.Value);
+    }
+
     private void SeekBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
     {
         if (_seekBarDragging)
@@ -98,7 +107,6 @@ public partial class MainWindow : Window
     {
         if (VideoPlayer.NaturalDuration.HasTimeSpan && !_seekBarDragging)
         {
-            _seekBarDragging = false;
             SeekBar.Value = VideoPlayer.Position.TotalSeconds;
             TimeLabel.Text = VideoPlayer.Position.ToString(@"hh\:mm\:ss");
         }

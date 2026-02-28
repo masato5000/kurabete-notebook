@@ -24,7 +24,9 @@
                     Stretch="Uniform" MediaOpened="VideoPlayer_MediaOpened"
                     MediaEnded="VideoPlayer_MediaEnded"/>
       <Slider Name="SeekBar" Grid.Row="1" Margin="4,2" Minimum="0" Maximum="100"
-              ValueChanged="SeekBar_ValueChanged" IsEnabled="False"/>
+              ValueChanged="SeekBar_ValueChanged" IsEnabled="False"
+              PreviewMouseLeftButtonDown="SeekBar_PreviewMouseLeftButtonDown"
+              PreviewMouseLeftButtonUp="SeekBar_PreviewMouseLeftButtonUp"/>
       <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="4,2">
         <Button Name="OpenBtn" Content="📂 動画を開く" Click="OpenBtn_Click" Margin="2"/>
         <Button Name="PlayPauseBtn" Content="▶ 再生" Click="PlayPauseBtn_Click" Margin="2" IsEnabled="False"/>
