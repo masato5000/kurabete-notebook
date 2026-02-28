@@ -4,21 +4,71 @@
 
 ### 必要なもの
 - Windows 10 以降
-- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)（インストール済みであれば次のステップへ）
 
-### ビルド手順
+---
 
-```bash
+### ステップ A — ソースコードを入手する
+
+ソースコードを取得する方法は 2 通りあります。どちらか簡単な方を選んでください。
+
+#### 方法 1: ZIP でダウンロード（Git 不要・おすすめ）
+
+1. ブラウザで [https://github.com/masato5000/kurabete-notebook](https://github.com/masato5000/kurabete-notebook) を開きます。
+2. 緑色の **「Code」** ボタンをクリックし、**「Download ZIP」** を選択します。
+3. ダウンロードした ZIP ファイルを右クリック →「すべて展開」で任意のフォルダーに解凍します。  
+   （例: `C:\Users\あなたの名前\Downloads\kurabete-notebook`）
+
+#### 方法 2: Git でクローン
+
+[Git for Windows](https://gitforwindows.org/) がインストール済みの場合:
+
+1. スタートメニューで **「PowerShell」** または **「コマンドプロンプト」** を検索して開きます。
+2. 以下のコマンドを貼り付けて Enter を押します:
+
+```powershell
 git clone https://github.com/masato5000/kurabete-notebook.git
-cd kurabete-notebook
+```
+
+3. `kurabete-notebook` フォルダーが作成されます。
+
+---
+
+### ステップ B — ターミナル（コマンドプロンプト）を開いてフォルダーへ移動する
+
+1. スタートメニューで **「PowerShell」** または **「コマンドプロンプト」** を検索して開きます。
+2. 解凍 / クローンしたフォルダーへ移動します。  
+   （パスはご自身の展開先に合わせて変更してください）
+
+```powershell
+cd C:\Users\あなたの名前\Downloads\kurabete-notebook
+```
+
+> **ヒント:** エクスプローラーでフォルダーを開き、アドレスバーに `powershell` と入力して Enter を押すと、そのフォルダーで PowerShell が開きます。
+
+---
+
+### ステップ C — ビルドする
+
+ターミナルに以下を入力して Enter を押します:
+
+```powershell
 dotnet build
 ```
 
-### 起動
+`Build succeeded` と表示されれば成功です。
 
-```bash
+> **エラーが出た場合:** `dotnet --version` を実行して `8.x.x` と表示されるか確認してください。表示されない場合は SDK が正しくインストールされていません。
+
+---
+
+### ステップ D — アプリを起動する
+
+```powershell
 dotnet run --project src/KurabeteNotebook.App
 ```
+
+メインウィンドウが表示されたら準備完了です。次のセクションの操作手順へ進んでください。
 
 ---
 
